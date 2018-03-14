@@ -10,13 +10,27 @@ import UIKit
 
 class RecipeCell: UITableViewCell {
 
-    @IBOutlet weak var recipeImageView: UIImageView!
-    @IBOutlet weak var recipeName: UILabel!
-    @IBOutlet weak var recipeDescription: UILabel!
+    @IBOutlet weak var recipeImageView: UIImageView! {
+        didSet {
+            recipeImageView.layer.cornerRadius = recipeImageView.frame.width / 4
+            recipeImageView.translatesAutoresizingMaskIntoConstraints = false
+            recipeImageView.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet weak var recipeNameLabel: UILabel! {
+        didSet {
+            
+        }
+    }
+    @IBOutlet weak var recipeDescriptionLabel: UILabel! {
+        didSet {
+            
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

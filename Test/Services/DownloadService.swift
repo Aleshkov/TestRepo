@@ -10,14 +10,14 @@ import Foundation
 
 struct DownloadService {
     
+    private let imageCache = NSCache<AnyObject, AnyObject>()
+
     func downloadRecipes(stringUrl: String, completion: @escaping ([Recipe]) -> Void) {
         guard let url = URL(string: stringUrl) else { return }
-        DispatchQueue.main.async {
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                guard let data = data else { return }
-                completion(self.parseRecipes(recipesData: data))
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            completion(self.parseRecipes(recipesData: data))
             }.resume()
-        }
     }
     
     fileprivate func parseRecipes(recipesData: Data) -> [Recipe] {
@@ -31,4 +31,19 @@ struct DownloadService {
         return recipes
     }
     
+    func downloadImageData(url: String, completion: @escaping (Data) -> ()) {
+        if let cachedData = imageCache.object(forKey: url as AnyObject) {
+            completion(cachedData as! Data)
+            return
+        }
+        let imageUrl = URL(string: url)
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: imageUrl!)
+            guard data != nil else { return }
+            
+            self.imageCache.setObject(data as AnyObject, forKey: url as AnyObject)
+            completion(self.imageCache.object(forKey: url as AnyObject) as! Data)
+        }
+    }
 }
+

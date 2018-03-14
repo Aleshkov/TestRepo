@@ -6,58 +6,69 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Text-Light.otf">
+            <string>SFProText-Light</string>
+        </array>
+        <array key="SF-Pro-Text-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" rowHeight="100" id="KGk-i7-Jjw" customClass="RecipeCell" customModule="Test" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" rowHeight="403" id="KGk-i7-Jjw" customClass="RecipeCell" customModule="Test" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="403"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="402.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIM-ez-L3H">
-                        <rect key="frame" x="100" y="21" width="194" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeA-FY-2d4">
-                        <rect key="frame" x="100" y="52" width="194" height="17"/>
-                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeA-FY-2d4">
+                        <rect key="frame" x="21" y="352.5" width="283" height="31.5"/>
+                        <fontDescription key="fontDescription" name="SFProText-Light" family="SF Pro Text" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iOU-q5-Xf0">
-                        <rect key="frame" x="10" y="10" width="80" height="79.5"/>
+                        <rect key="frame" x="8" y="40.5" width="304" height="304"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="cCv-aB-0gl"/>
+                            <constraint firstAttribute="width" secondItem="iOU-q5-Xf0" secondAttribute="height" multiplier="1:1" id="CQ8-kM-7Sl"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIM-ez-L3H">
+                        <rect key="frame" x="21" y="11" width="283" height="21.5"/>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="BIM-ez-L3H" secondAttribute="trailing" constant="10" id="3k6-6A-c7A"/>
-                    <constraint firstItem="iOU-q5-Xf0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Jfp-ag-YYj"/>
-                    <constraint firstItem="NeA-FY-2d4" firstAttribute="leading" secondItem="iOU-q5-Xf0" secondAttribute="trailing" constant="10" id="Ltb-2x-yVi"/>
-                    <constraint firstItem="NeA-FY-2d4" firstAttribute="top" secondItem="BIM-ez-L3H" secondAttribute="bottom" constant="10" id="gSh-0e-e1v"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="NeA-FY-2d4" secondAttribute="trailing" constant="10" id="hhE-Wp-Kyp"/>
-                    <constraint firstItem="BIM-ez-L3H" firstAttribute="leading" secondItem="iOU-q5-Xf0" secondAttribute="trailing" constant="10" id="iDh-TP-KHf"/>
-                    <constraint firstItem="iOU-q5-Xf0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="wCT-Ci-PgF"/>
-                    <constraint firstAttribute="bottom" secondItem="iOU-q5-Xf0" secondAttribute="bottom" constant="10" id="wfW-vR-B3F"/>
-                    <constraint firstItem="BIM-ez-L3H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="zS1-WM-vts"/>
+                    <constraint firstAttribute="trailing" secondItem="iOU-q5-Xf0" secondAttribute="trailing" constant="8" id="4RH-Xu-ET1"/>
+                    <constraint firstItem="iOU-q5-Xf0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="6Xt-QY-1GG"/>
+                    <constraint firstItem="BIM-ez-L3H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="6YG-Fg-Rbu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NeA-FY-2d4" secondAttribute="trailing" id="9p9-hd-h2I"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="NeA-FY-2d4" secondAttribute="bottom" constant="8" id="Drw-3j-TAL"/>
+                    <constraint firstItem="NeA-FY-2d4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="H8a-b3-yFM"/>
+                    <constraint firstItem="iOU-q5-Xf0" firstAttribute="top" secondItem="BIM-ez-L3H" secondAttribute="bottom" constant="8" id="Jc6-Db-GfL"/>
+                    <constraint firstItem="NeA-FY-2d4" firstAttribute="top" secondItem="iOU-q5-Xf0" secondAttribute="bottom" constant="8" id="Pgn-wD-9A4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BIM-ez-L3H" secondAttribute="trailing" id="Uqc-W1-1ix"/>
+                    <constraint firstItem="BIM-ez-L3H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Xzt-m1-do2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
-                <outlet property="recipeDescription" destination="NeA-FY-2d4" id="ctM-35-pkz"/>
+                <outlet property="recipeDescriptionLabel" destination="NeA-FY-2d4" id="Ekw-Qm-kLn"/>
                 <outlet property="recipeImageView" destination="iOU-q5-Xf0" id="veZ-o1-jLc"/>
-                <outlet property="recipeName" destination="BIM-ez-L3H" id="KzJ-fQ-rhb"/>
+                <outlet property="recipeNameLabel" destination="BIM-ez-L3H" id="iUn-5k-aaJ"/>
             </connections>
-            <point key="canvasLocation" x="33" y="112"/>
+            <point key="canvasLocation" x="33" y="160.5"/>
         </tableViewCell>
     </objects>
 </document>
