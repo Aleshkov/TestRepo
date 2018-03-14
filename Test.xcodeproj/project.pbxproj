@@ -11,10 +11,11 @@
 		55B23AF62058C41A00B59C01 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23AF52058C41A00B59C01 /* RecipesViewController.swift */; };
 		55B23AFB2058C41A00B59C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B23AFA2058C41A00B59C01 /* Assets.xcassets */; };
 		55B23AFE2058C41A00B59C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B23AFC2058C41A00B59C01 /* LaunchScreen.storyboard */; };
-		55B23B062058CE8C00B59C01 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23B052058CE8C00B59C01 /* RecipeCell.swift */; };
 		55B23B0A2058CF5100B59C01 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23B092058CF5100B59C01 /* RecipeModel.swift */; };
 		55B23B0D2058D01700B59C01 /* UrlConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23B0C2058D01700B59C01 /* UrlConstants.swift */; };
 		55B23B0F2058D09A00B59C01 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23B0E2058D09A00B59C01 /* DownloadService.swift */; };
+		55B23B252058EAFC00B59C01 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23B232058EAFC00B59C01 /* RecipeCell.swift */; };
+		55B23B262058EAFC00B59C01 /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B23B242058EAFC00B59C01 /* RecipeCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,10 +25,11 @@
 		55B23AFA2058C41A00B59C01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55B23AFD2058C41A00B59C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B23AFF2058C41A00B59C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55B23B052058CE8C00B59C01 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		55B23B092058CF5100B59C01 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		55B23B0C2058D01700B59C01 /* UrlConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlConstants.swift; sourceTree = "<group>"; };
 		55B23B0E2058D09A00B59C01 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		55B23B232058EAFC00B59C01 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		55B23B242058EAFC00B59C01 /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,15 +62,11 @@
 		55B23AF22058C41A00B59C01 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				55B23B272058EB2700B59C01 /* SupportFiles */,
+				55B23B1F2058EA7E00B59C01 /* Controllers */,
 				55B23B0B2058D00000B59C01 /* Constant */,
 				55B23B082058CF3300B59C01 /* Services */,
 				55B23B072058CF2E00B59C01 /* Models */,
-				55B23AF32058C41A00B59C01 /* AppDelegate.swift */,
-				55B23AF52058C41A00B59C01 /* RecipesViewController.swift */,
-				55B23B052058CE8C00B59C01 /* RecipeCell.swift */,
-				55B23AFA2058C41A00B59C01 /* Assets.xcassets */,
-				55B23AFC2058C41A00B59C01 /* LaunchScreen.storyboard */,
-				55B23AFF2058C41A00B59C01 /* Info.plist */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -95,6 +93,51 @@
 				55B23B0C2058D01700B59C01 /* UrlConstants.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		55B23B1F2058EA7E00B59C01 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				55B23B212058EAA300B59C01 /* RecipeDetailController */,
+				55B23B202058EA9300B59C01 /* RecipesController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		55B23B202058EA9300B59C01 /* RecipesController */ = {
+			isa = PBXGroup;
+			children = (
+				55B23AF52058C41A00B59C01 /* RecipesViewController.swift */,
+				55B23B222058EACA00B59C01 /* RecipeCell */,
+			);
+			path = RecipesController;
+			sourceTree = "<group>";
+		};
+		55B23B212058EAA300B59C01 /* RecipeDetailController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RecipeDetailController;
+			sourceTree = "<group>";
+		};
+		55B23B222058EACA00B59C01 /* RecipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				55B23B232058EAFC00B59C01 /* RecipeCell.swift */,
+				55B23B242058EAFC00B59C01 /* RecipeCell.xib */,
+			);
+			path = RecipeCell;
+			sourceTree = "<group>";
+		};
+		55B23B272058EB2700B59C01 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				55B23AF32058C41A00B59C01 /* AppDelegate.swift */,
+				55B23AFA2058C41A00B59C01 /* Assets.xcassets */,
+				55B23AFC2058C41A00B59C01 /* LaunchScreen.storyboard */,
+				55B23AFF2058C41A00B59C01 /* Info.plist */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55B23AFE2058C41A00B59C01 /* LaunchScreen.storyboard in Resources */,
+				55B23B262058EAFC00B59C01 /* RecipeCell.xib in Resources */,
 				55B23AFB2058C41A00B59C01 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,10 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55B23B062058CE8C00B59C01 /* RecipeCell.swift in Sources */,
 				55B23B0A2058CF5100B59C01 /* RecipeModel.swift in Sources */,
 				55B23B0D2058D01700B59C01 /* UrlConstants.swift in Sources */,
 				55B23AF62058C41A00B59C01 /* RecipesViewController.swift in Sources */,
+				55B23B252058EAFC00B59C01 /* RecipeCell.swift in Sources */,
 				55B23AF42058C41A00B59C01 /* AppDelegate.swift in Sources */,
 				55B23B0F2058D09A00B59C01 /* DownloadService.swift in Sources */,
 			);
@@ -304,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NY3VS8XW85;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Test/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Space-o.Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -319,7 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NY3VS8XW85;
-				INFOPLIST_FILE = Test/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Test/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Space-o.Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";

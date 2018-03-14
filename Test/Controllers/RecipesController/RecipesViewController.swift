@@ -10,25 +10,20 @@ import UIKit
 
 class RecipesViewController: UIViewController {
     
+    let urlConstants = UrlConstants()
+    let downloadService = DownloadService()
 
     let tableView: UITableView = {
        let tv = UITableView()
-//        tv.separatorStyle = .none
         tv.translatesAutoresizingMaskIntoConstraints = false
-        tv.allowsSelection = false
         return tv
     }()
-    
-    let urlConstants = UrlConstants()
-    let downloadService = DownloadService()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         downloadService.downloadRecipes(stringUrl: urlConstants.recipeUrl) { model in
-            print(model.first?.description)
+            
         }
-        
         setupNavigationBar()
         setupTableView()
     }
@@ -48,7 +43,7 @@ class RecipesViewController: UIViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        
+    
         tableView.register(RecipeCell.self, forCellReuseIdentifier: "recipeCell")
         
         self.view.addSubview(tableView)
