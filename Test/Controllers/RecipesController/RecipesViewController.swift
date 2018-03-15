@@ -12,7 +12,8 @@ class RecipesViewController: UIViewController {
     
     let urlConstants = UrlConstants()
     let downloadService = DownloadService()
-    var recipeList: [Recipe] = []
+    var recipeList = [Recipe]()
+    var currentRecipeList = [Recipe]()
     
     let tableView: UITableView = {
         let tv = UITableView()
@@ -24,6 +25,7 @@ class RecipesViewController: UIViewController {
         super.viewDidLoad()
         downloadService.downloadRecipes(stringUrl: urlConstants.recipeUrl) { model in
             self.recipeList = model
+            self.currentRecipeList = self.recipeList
         }
         
         setupNavigationBar()
@@ -33,9 +35,13 @@ class RecipesViewController: UIViewController {
     func setupNavigationBar() {
         navigationItem.title = "Recipes"
         navigationController?.navigationBar.prefersLargeTitles = true
+
         
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
+        searchController.searchBar.showsScopeBar = true
+        searchController.searchBar.scopeButtonTitles = ["For date", "For name"]
     }
     
     func setupTableView() {
@@ -52,25 +58,63 @@ class RecipesViewController: UIViewController {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
     }
 }
+
+
+
+extension RecipesViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        currentRecipeList = recipeList.filter { recipe -> Bool in
+            if searchText.isEmpty { return true }
+            if recipe.description == nil {
+                return recipe.name.lowercased().contains(searchText.lowercased()) || recipe.instructions.lowercased().contains(searchText.lowercased())
+            } else {
+                return recipe.name.lowercased().contains(searchText.lowercased()) || recipe.instructions.lowercased().contains(searchText.lowercased()) ||
+                    recipe.description!.lowercased().contains(searchText.lowercased())
+            }
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        switch selectedScope {
+        case 0:
+            currentRecipeList = recipeList.sorted(by: { (first, second) -> Bool in
+                first.name > second.name
+            })
+        case 1:
+            currentRecipeList = recipeList.sorted(by: { (first, second) -> Bool in
+                first.lastUpdated > second.lastUpdated
+            })
+        default:
+            break
+        }
+        tableView.reloadData()
+    }
+}
+
+
+
 
 extension RecipesViewController: UITableViewDelegate {
     
 }
 
+
+
+
 extension RecipesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeList.count
+        return currentRecipeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
-        cell.recipeNameLabel.text = recipeList[indexPath.row].name
-        cell.recipeDescriptionLabel.text = recipeList[indexPath.row].description
-        downloadService.downloadImageData(url: recipeList[indexPath.row].images.first!) { data in
+        cell.recipeNameLabel.text = currentRecipeList[indexPath.row].name
+        cell.recipeDescriptionLabel.text = currentRecipeList[indexPath.row].description
+        downloadService.downloadImageData(url: currentRecipeList[indexPath.row].images.first!) { data in
             DispatchQueue.main.async {
                 cell.recipeImageView.image = UIImage(data: data)
             }

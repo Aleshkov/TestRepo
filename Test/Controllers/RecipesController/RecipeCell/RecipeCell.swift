@@ -12,7 +12,7 @@ class RecipeCell: UITableViewCell {
 
     @IBOutlet weak var recipeImageView: UIImageView! {
         didSet {
-            recipeImageView.layer.cornerRadius = recipeImageView.frame.width / 4
+            recipeImageView.layer.cornerRadius = recipeImageView.frame.width / 6
             recipeImageView.translatesAutoresizingMaskIntoConstraints = false
             recipeImageView.layer.masksToBounds = true
         }

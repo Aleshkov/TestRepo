@@ -30,20 +30,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeA-FY-2d4">
-                        <rect key="frame" x="21" y="352.5" width="283" height="31.5"/>
+                        <rect key="frame" x="21" y="350.5" width="283" height="33.5"/>
                         <fontDescription key="fontDescription" name="SFProText-Light" family="SF Pro Text" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iOU-q5-Xf0">
-                        <rect key="frame" x="8" y="40.5" width="304" height="304"/>
+                        <rect key="frame" x="8" y="38.5" width="304" height="304"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="iOU-q5-Xf0" secondAttribute="height" multiplier="1:1" id="CQ8-kM-7Sl"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIM-ez-L3H">
-                        <rect key="frame" x="21" y="11" width="283" height="21.5"/>
-                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIM-ez-L3H">
+                        <rect key="frame" x="21" y="11" width="283" height="19.5"/>
+                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -62,7 +62,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+            <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
             <connections>
                 <outlet property="recipeDescriptionLabel" destination="NeA-FY-2d4" id="Ekw-Qm-kLn"/>
                 <outlet property="recipeImageView" destination="iOU-q5-Xf0" id="veZ-o1-jLc"/>
