@@ -19,6 +19,8 @@
 		5542099A205988F6000D719F /* SF-Pro-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5542098D205988BE000D719F /* SF-Pro-Text-RegularItalic.otf */; };
 		5542099B205988F6000D719F /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 55420986205988BC000D719F /* SF-Pro-Text-Semibold.otf */; };
 		5542099C205988F6000D719F /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 55420988205988BD000D719F /* SF-Pro-Text-SemiboldItalic.otf */; };
+		554209A1205AAD1D000D719F /* RecipesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554209A0205AAD1D000D719F /* RecipesDetailsViewController.swift */; };
+		55805B5C205AF81900F7CE7B /* RecipeDetailsPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55805B5B205AF81900F7CE7B /* RecipeDetailsPhotoCell.swift */; };
 		55B23AF42058C41A00B59C01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23AF32058C41A00B59C01 /* AppDelegate.swift */; };
 		55B23AF62058C41A00B59C01 /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23AF52058C41A00B59C01 /* RecipesViewController.swift */; };
 		55B23AFB2058C41A00B59C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B23AFA2058C41A00B59C01 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		55B23B0F2058D09A00B59C01 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23B0E2058D09A00B59C01 /* DownloadService.swift */; };
 		55B23B252058EAFC00B59C01 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B23B232058EAFC00B59C01 /* RecipeCell.swift */; };
 		55B23B262058EAFC00B59C01 /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B23B242058EAFC00B59C01 /* RecipeCell.xib */; };
+		55C6CB4E205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C6CB4C205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.swift */; };
+		55C6CB4F205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55C6CB4D205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +47,8 @@
 		5542098E205988BE000D719F /* SF-Pro-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-LightItalic.otf"; sourceTree = "<group>"; };
 		5542098F205988BE000D719F /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		55420990205988BF000D719F /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
+		554209A0205AAD1D000D719F /* RecipesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesDetailsViewController.swift; sourceTree = "<group>"; };
+		55805B5B205AF81900F7CE7B /* RecipeDetailsPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsPhotoCell.swift; sourceTree = "<group>"; };
 		55B23AF02058C41A00B59C01 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B23AF32058C41A00B59C01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B23AF52058C41A00B59C01 /* RecipesViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +60,8 @@
 		55B23B0E2058D09A00B59C01 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		55B23B232058EAFC00B59C01 /* RecipeCell.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; tabWidth = 2; };
 		55B23B242058EAFC00B59C01 /* RecipeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
+		55C6CB4C205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsInfoTableViewCell.swift; sourceTree = "<group>"; };
+		55C6CB4D205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailsInfoTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,25 @@
 				55420988205988BD000D719F /* SF-Pro-Text-SemiboldItalic.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5542099F205AACF8000D719F /* RecipesDetailsController */ = {
+			isa = PBXGroup;
+			children = (
+				554209A0205AAD1D000D719F /* RecipesDetailsViewController.swift */,
+				554209A4205AB6C9000D719F /* RecipeDetailCell */,
+			);
+			path = RecipesDetailsController;
+			sourceTree = "<group>";
+		};
+		554209A4205AB6C9000D719F /* RecipeDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				55805B5B205AF81900F7CE7B /* RecipeDetailsPhotoCell.swift */,
+				55C6CB4C205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.swift */,
+				55C6CB4D205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.xib */,
+			);
+			path = RecipeDetailCell;
 			sourceTree = "<group>";
 		};
 		55B23AE72058C41A00B59C01 = {
@@ -142,7 +169,7 @@
 		55B23B1F2058EA7E00B59C01 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				55B23B212058EAA300B59C01 /* RecipeDetailController */,
+				5542099F205AACF8000D719F /* RecipesDetailsController */,
 				55B23B202058EA9300B59C01 /* RecipesController */,
 			);
 			path = Controllers;
@@ -155,13 +182,6 @@
 				55B23B222058EACA00B59C01 /* RecipeCell */,
 			);
 			path = RecipesController;
-			sourceTree = "<group>";
-		};
-		55B23B212058EAA300B59C01 /* RecipeDetailController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RecipeDetailController;
 			sourceTree = "<group>";
 		};
 		55B23B222058EACA00B59C01 /* RecipeCell */ = {
@@ -257,6 +277,7 @@
 				5542099C205988F6000D719F /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				55B23AFE2058C41A00B59C01 /* LaunchScreen.storyboard in Resources */,
 				55B23B262058EAFC00B59C01 /* RecipeCell.xib in Resources */,
+				55C6CB4F205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.xib in Resources */,
 				55B23AFB2058C41A00B59C01 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,8 +292,11 @@
 				55B23B0A2058CF5100B59C01 /* RecipeModel.swift in Sources */,
 				55B23B0D2058D01700B59C01 /* UrlConstants.swift in Sources */,
 				55B23AF62058C41A00B59C01 /* RecipesViewController.swift in Sources */,
+				554209A1205AAD1D000D719F /* RecipesDetailsViewController.swift in Sources */,
+				55C6CB4E205AE6DA000AD467 /* RecipeDetailsInfoTableViewCell.swift in Sources */,
 				55B23B252058EAFC00B59C01 /* RecipeCell.swift in Sources */,
 				55B23AF42058C41A00B59C01 /* AppDelegate.swift in Sources */,
+				55805B5C205AF81900F7CE7B /* RecipeDetailsPhotoCell.swift in Sources */,
 				55B23B0F2058D09A00B59C01 /* DownloadService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,7 +430,7 @@
 				DEVELOPMENT_TEAM = NY3VS8XW85;
 				INFOPLIST_FILE = "$(SRCROOT)/Test/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Space-o.Test";
+				PRODUCT_BUNDLE_IDENTIFIER = "Space-o.Test1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -421,7 +445,7 @@
 				DEVELOPMENT_TEAM = NY3VS8XW85;
 				INFOPLIST_FILE = "$(SRCROOT)/Test/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Space-o.Test";
+				PRODUCT_BUNDLE_IDENTIFIER = "Space-o.Test1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

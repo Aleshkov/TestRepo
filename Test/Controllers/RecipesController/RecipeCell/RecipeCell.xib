@@ -35,7 +35,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iOU-q5-Xf0">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimage" translatesAutoresizingMaskIntoConstraints="NO" id="iOU-q5-Xf0">
                         <rect key="frame" x="8" y="38.5" width="304" height="304"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="iOU-q5-Xf0" secondAttribute="height" multiplier="1:1" id="CQ8-kM-7Sl"/>
@@ -71,4 +71,7 @@
             <point key="canvasLocation" x="33" y="160.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="noimage" width="1346" height="792"/>
+    </resources>
 </document>

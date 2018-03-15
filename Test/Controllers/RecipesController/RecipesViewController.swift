@@ -23,7 +23,6 @@ class RecipesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupDefaultContent()
         setupNavigationBar()
         setupTableView()
@@ -32,19 +31,19 @@ class RecipesViewController: UIViewController {
     
     func setupDefaultContent() {
         downloadService.downloadRecipes(stringUrl: urlConstants.recipeUrl) { model in
-            self.recipeList = model
-            self.currentRecipeList = self.recipeList.sorted(by: {$0.lastUpdated < $1.lastUpdated })
+            self.currentRecipeList = model.sorted(by: {$0.lastUpdated < $1.lastUpdated })
+            self.recipeList = self.currentRecipeList
         }
     }
     
     func setupNavigationBar() {
         navigationItem.title = "Recipes"
-//        navigationController?.navigationBar.prefersLargeTitles = true
-        
         
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.showsCancelButton = false
         searchController.searchBar.scopeButtonTitles = ["For date", "For name"]
         navigationItem.searchController = searchController
     }
@@ -94,16 +93,25 @@ extension RecipesViewController: UISearchBarDelegate {
         }
         tableView.reloadData()
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.selectedScopeButtonIndex = 0
+        currentRecipeList = recipeList
+        tableView.reloadData()
+    }
 }
-
-
 
 
 extension RecipesViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vs = RecipesDetailsViewController()
+        vs.collectionView
+        print(1)
+        navigationController!.pushViewController(vs, animated: true)
+        vs.recipe = currentRecipeList[indexPath.row]
+    }
 }
-
-
 
 
 extension RecipesViewController: UITableViewDataSource {
