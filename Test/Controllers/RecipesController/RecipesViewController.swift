@@ -23,23 +23,28 @@ class RecipesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadService.downloadRecipes(stringUrl: urlConstants.recipeUrl) { model in
-            self.recipeList = model
-            self.currentRecipeList = self.recipeList.sorted(by: {$0.lastUpdated > $1.lastUpdated })
-        }
-        
+
+        setupDefaultContent()
         setupNavigationBar()
         setupTableView()
     }
     
+    
+    func setupDefaultContent() {
+        downloadService.downloadRecipes(stringUrl: urlConstants.recipeUrl) { model in
+            self.recipeList = model
+            self.currentRecipeList = self.recipeList.sorted(by: {$0.lastUpdated < $1.lastUpdated })
+        }
+    }
+    
     func setupNavigationBar() {
         navigationItem.title = "Recipes"
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.prefersLargeTitles = true
         
         
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
-        searchController.searchBar.showsScopeBar = true
+        searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.scopeButtonTitles = ["For date", "For name"]
         navigationItem.searchController = searchController
     }
@@ -47,6 +52,7 @@ class RecipesViewController: UIViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.keyboardDismissMode = .onDrag
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -80,9 +86,9 @@ extension RecipesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         switch selectedScope {
         case 0:
-            currentRecipeList = recipeList.sorted(by: {$0.lastUpdated > $1.lastUpdated })
+            currentRecipeList = currentRecipeList.sorted(by: {$0.lastUpdated < $1.lastUpdated })
         case 1:
-            currentRecipeList = recipeList.sorted(by: {$0.name > $1.name})
+            currentRecipeList = currentRecipeList.sorted(by: {$0.name < $1.name})
         default:
             break
         }
