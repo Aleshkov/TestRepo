@@ -25,7 +25,7 @@ class RecipesViewController: UIViewController {
         super.viewDidLoad()
         downloadService.downloadRecipes(stringUrl: urlConstants.recipeUrl) { model in
             self.recipeList = model
-            self.currentRecipeList = self.recipeList
+            self.currentRecipeList = self.recipeList.sorted(by: {$0.lastUpdated > $1.lastUpdated })
         }
         
         setupNavigationBar()
@@ -35,13 +35,13 @@ class RecipesViewController: UIViewController {
     func setupNavigationBar() {
         navigationItem.title = "Recipes"
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
         
         let searchController = UISearchController(searchResultsController: nil)
-        navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
         searchController.searchBar.showsScopeBar = true
         searchController.searchBar.scopeButtonTitles = ["For date", "For name"]
+        navigationItem.searchController = searchController
     }
     
     func setupTableView() {
@@ -80,13 +80,9 @@ extension RecipesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         switch selectedScope {
         case 0:
-            currentRecipeList = recipeList.sorted(by: { (first, second) -> Bool in
-                first.name > second.name
-            })
+            currentRecipeList = recipeList.sorted(by: {$0.lastUpdated > $1.lastUpdated })
         case 1:
-            currentRecipeList = recipeList.sorted(by: { (first, second) -> Bool in
-                first.lastUpdated > second.lastUpdated
-            })
+            currentRecipeList = recipeList.sorted(by: {$0.name > $1.name})
         default:
             break
         }
