@@ -8,9 +8,9 @@
 
 import Foundation
 
+let imageCache = NSCache<AnyObject, AnyObject>()
+
 struct DownloadService {
-    
-    private let imageCache = NSCache<AnyObject, AnyObject>()
     
     func downloadRecipes(stringUrl: String, completion: @escaping ([Recipe]) -> Void) {
         guard let url = URL(string: stringUrl) else { return }
@@ -36,13 +36,13 @@ struct DownloadService {
             completion(cachedData as! Data)
             return
         }
-        let imageUrl = URL(string: url)
-        DispatchQueue.global().async {
+        DispatchQueue.global(qos: .background).async {
+            let imageUrl = URL(string: url)
             let data = try? Data(contentsOf: imageUrl!)
             guard data != nil else { return }
             
-            self.imageCache.setObject(data as AnyObject, forKey: url as AnyObject)
-            completion(self.imageCache.object(forKey: url as AnyObject) as! Data)
+            imageCache.setObject(data as AnyObject, forKey: url as AnyObject)
+            completion(imageCache.object(forKey: url as AnyObject) as! Data)
         }
     }
 }

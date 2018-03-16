@@ -11,10 +11,8 @@ import UIKit
 class RecipeDetailsPhotoCell: UICollectionViewCell {
     
     let recipeImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "noimage"))
-        imageView.layer.cornerRadius = 20
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

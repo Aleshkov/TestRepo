@@ -67,7 +67,6 @@ class RecipesViewController: UIViewController {
 }
 
 
-
 extension RecipesViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         currentRecipeList = recipeList.filter { recipe -> Bool in
@@ -118,12 +117,15 @@ extension RecipesViewController: UITableViewDataSource {
         return currentRecipeList.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
         cell.recipeNameLabel.text = currentRecipeList[indexPath.row].name
         cell.recipeDescriptionLabel.text = currentRecipeList[indexPath.row].description
         downloadService.downloadImageData(url: currentRecipeList[indexPath.row].images.first!) { data in
+
             DispatchQueue.main.async {
+                print(indexPath.row)
                 cell.recipeImageView.image = UIImage(data: data)
             }
         }

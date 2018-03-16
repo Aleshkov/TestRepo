@@ -32,7 +32,6 @@ class RecipesDetailsViewController: UIViewController  {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44.0
         tableView.separatorStyle = .none
-        tableView.bouncesZoom = true
         tableView.rowHeight = UITableViewAutomaticDimension
         
         let nibName = UINib(nibName: "RecipeDetailsInfoTableViewCell", bundle: nil)
@@ -58,7 +57,7 @@ class RecipesDetailsViewController: UIViewController  {
         case 5:
             return "Very hard"
         default:
-            return "Some"
+            return "Everything can be"
         }
     }
 }
