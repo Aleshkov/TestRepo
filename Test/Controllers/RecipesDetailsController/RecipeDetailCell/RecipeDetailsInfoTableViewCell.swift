@@ -33,7 +33,6 @@ class RecipeDetailsInfoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
     
     func registerCollectionView<DataSource: UICollectionViewDataSource>(dataSource: DataSource) {

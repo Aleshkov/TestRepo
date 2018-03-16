@@ -69,6 +69,7 @@ class RecipesViewController: UIViewController {
 
 
 extension RecipesViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         currentRecipeList = recipeList.filter { recipe -> Bool in
             if searchText.isEmpty { return true }
@@ -112,6 +113,7 @@ extension RecipesViewController: UITableViewDelegate {
 }
 
 extension RecipesViewController: UITableViewDataSourcePrefetching {
+    
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { downloadService.downloadImageData(url: currentRecipeList[$0.row].images.first!, completion: { _ in })
         }
@@ -123,7 +125,6 @@ extension RecipesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentRecipeList.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell

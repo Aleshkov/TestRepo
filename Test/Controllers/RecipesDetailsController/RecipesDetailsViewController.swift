@@ -63,6 +63,7 @@ class RecipesDetailsViewController: UIViewController  {
 }
 
 extension RecipesDetailsViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (recipe?.images.count)!
     }
@@ -79,6 +80,7 @@ extension RecipesDetailsViewController: UICollectionViewDataSource {
 }
 
 extension RecipesDetailsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
