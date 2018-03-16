@@ -9,33 +9,25 @@
 import UIKit
 
 class RecipeCell: UITableViewCell {
-
+    
     @IBOutlet weak var recipeImageView: UIImageView! {
         didSet {
-            recipeImageView.layer.cornerRadius = recipeImageView.frame.width / 6
+            recipeImageView.layer.cornerRadius = 20
             recipeImageView.translatesAutoresizingMaskIntoConstraints = false
             recipeImageView.layer.masksToBounds = true
         }
     }
-    @IBOutlet weak var recipeNameLabel: UILabel! {
-        didSet {
-            
-        }
-    }
-    @IBOutlet weak var recipeDescriptionLabel: UILabel! {
-        didSet {
-            
-        }
-    }
+    @IBOutlet weak var recipeNameLabel: UILabel!
+    @IBOutlet weak var recipeDescriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
 }

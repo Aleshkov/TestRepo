@@ -29,7 +29,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="872.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JV4-Xb-JNC">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" prefetchingEnabled="NO" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JV4-Xb-JNC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -87,12 +87,12 @@
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="it9-A3-mvS">
                         <rect key="frame" x="22" y="520" width="272" height="341"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="di3-Ly-vZb">
-                        <rect key="frame" x="140.5" y="320" width="39" height="37"/>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" defersCurrentPageDisplay="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="di3-Ly-vZb">
+                        <rect key="frame" x="24" y="320" width="272" height="37"/>
                     </pageControl>
                 </subviews>
                 <constraints>
@@ -107,6 +107,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="it9-A3-mvS" secondAttribute="trailing" constant="10" id="K5h-Zh-ArG"/>
                     <constraint firstAttribute="trailingMargin" secondItem="qxk-59-DRR" secondAttribute="trailing" constant="10" id="NzN-Uq-0E2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="RV2-bd-mMc" secondAttribute="trailing" constant="10" id="O75-dF-p6r"/>
+                    <constraint firstItem="di3-Ly-vZb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="QrD-FZ-l9O"/>
                     <constraint firstItem="it9-A3-mvS" firstAttribute="top" secondItem="Tc6-o4-ICc" secondAttribute="bottom" id="Vey-Vw-eTZ"/>
                     <constraint firstItem="v8P-1L-DKj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="VsH-tg-uzV"/>
                     <constraint firstItem="JV4-Xb-JNC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WDw-p2-cLk"/>
@@ -115,6 +116,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="5E7-ZJ-96C" secondAttribute="trailing" constant="10" id="XdS-Fj-390"/>
                     <constraint firstItem="di3-Ly-vZb" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Z5v-r6-m1k"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Tc6-o4-ICc" secondAttribute="trailing" constant="10" id="ZIf-bC-Byi"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="di3-Ly-vZb" secondAttribute="trailing" constant="8" id="aDx-vY-5aa"/>
                     <constraint firstItem="v8P-1L-DKj" firstAttribute="top" secondItem="5E7-ZJ-96C" secondAttribute="bottom" constant="10" id="bXy-jt-iNk"/>
                     <constraint firstItem="5E7-ZJ-96C" firstAttribute="top" secondItem="WGx-ce-dh6" secondAttribute="bottom" id="crs-Rq-3gG"/>
                     <constraint firstItem="Tc6-o4-ICc" firstAttribute="top" secondItem="RV2-bd-mMc" secondAttribute="bottom" constant="10" id="fwt-Ga-k3j"/>

@@ -11,7 +11,7 @@ import Foundation
 struct DownloadService {
     
     private let imageCache = NSCache<AnyObject, AnyObject>()
-
+    
     func downloadRecipes(stringUrl: String, completion: @escaping ([Recipe]) -> Void) {
         guard let url = URL(string: stringUrl) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in

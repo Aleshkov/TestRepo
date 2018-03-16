@@ -106,8 +106,6 @@ extension RecipesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vs = RecipesDetailsViewController()
-        vs.collectionView
-        print(1)
         navigationController!.pushViewController(vs, animated: true)
         vs.recipe = currentRecipeList[indexPath.row]
     }

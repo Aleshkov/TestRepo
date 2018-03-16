@@ -11,9 +11,11 @@ import UIKit
 class RecipeDetailsPhotoCell: UICollectionViewCell {
     
     let recipeImageView: UIImageView = {
-       let imageView = UIImageView(image: #imageLiteral(resourceName: "noimage"))
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "noimage"))
+        imageView.layer.cornerRadius = 20
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -27,18 +29,16 @@ class RecipeDetailsPhotoCell: UICollectionViewCell {
         addSubview(recipeImageConteinerView)
         recipeImageConteinerView.translatesAutoresizingMaskIntoConstraints = false
         
-        recipeImageConteinerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        recipeImageConteinerView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         recipeImageConteinerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         recipeImageConteinerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        recipeImageConteinerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         recipeImageConteinerView.addSubview(recipeImageView)
-        recipeImageView.centerXAnchor.constraint(equalTo: recipeImageConteinerView.centerXAnchor).isActive = true
-        recipeImageView.centerYAnchor.constraint(equalTo: recipeImageConteinerView.centerYAnchor).isActive = true
-        recipeImageView.heightAnchor.constraint(equalTo: recipeImageConteinerView.heightAnchor).isActive = true
-        
-        recipeImageConteinerView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
-        
-        
+        recipeImageView.topAnchor.constraint(equalTo: recipeImageConteinerView.topAnchor).isActive = true
+        recipeImageView.leadingAnchor.constraint(equalTo: recipeImageConteinerView.leadingAnchor).isActive = true
+        recipeImageView.trailingAnchor.constraint(equalTo: recipeImageConteinerView.trailingAnchor).isActive = true
+        recipeImageView.bottomAnchor.constraint(equalTo: recipeImageConteinerView.bottomAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

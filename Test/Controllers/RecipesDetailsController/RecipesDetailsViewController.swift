@@ -8,9 +8,10 @@
 
 import UIKit
 
-class RecipesDetailsViewController: UIViewController, UITableViewDataSource, UICollectionViewDataSource  {
+class RecipesDetailsViewController: UIViewController  {
     
     var recipe: Recipe? = nil
+    let downloadService = DownloadService()
     
     let tableView: UITableView = {
         let tv = UITableView()
@@ -18,21 +19,8 @@ class RecipesDetailsViewController: UIViewController, UITableViewDataSource, UIC
         return tv
     }()
     
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
-        
-        let cv = UICollectionView()
-        cv.setCollectionViewLayout(layout, animated: true)
-        return cv
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        collectionView.dataSource = self
-        collectionView.register(RecipeDetailsPhotoCell.self, forCellWithReuseIdentifier: "recipePhotoCell")
-        collectionView.isPagingEnabled = true
         setupTableView()
     }
     
@@ -73,17 +61,25 @@ class RecipesDetailsViewController: UIViewController, UITableViewDataSource, UIC
             return "Some"
         }
     }
-    
+}
+
+extension RecipesDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (recipe?.images.count)!
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipePhotoCell", for: indexPath)
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recipePhotoCell", for: indexPath) as! RecipeDetailsPhotoCell
+        downloadService.downloadImageData(url: (recipe?.images[indexPath.item])!) { data in
+            DispatchQueue.main.async {
+                cell.recipeImageView.image = UIImage(data: data)
+            }
+        }
         return cell
     }
-    
+}
+
+extension RecipesDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -94,9 +90,8 @@ class RecipesDetailsViewController: UIViewController, UITableViewDataSource, UIC
         detailCell.descriptionLabel.text = recipe?.description
         detailCell.difficultLabel.text = setDifficult((recipe?.difficulty)!)
         detailCell.instructionTextView.text = recipe?.instructions
-        detailCell.collectionView = collectionView
+        detailCell.pageControl.numberOfPages = (recipe?.images.count)!
+        detailCell.registerCollectionView(dataSource: self)
         return detailCell
     }
-    
 }
-
