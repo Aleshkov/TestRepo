@@ -51,6 +51,7 @@ class RecipesViewController: UIViewController {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         tableView.keyboardDismissMode = .onDrag
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -110,6 +111,12 @@ extension RecipesViewController: UITableViewDelegate {
     }
 }
 
+extension RecipesViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { downloadService.downloadImageData(url: currentRecipeList[$0.row].images.first!, completion: { _ in })
+        }
+    }
+}
 
 extension RecipesViewController: UITableViewDataSource {
     
@@ -123,7 +130,6 @@ extension RecipesViewController: UITableViewDataSource {
         cell.recipeNameLabel.text = currentRecipeList[indexPath.row].name
         cell.recipeDescriptionLabel.text = currentRecipeList[indexPath.row].description
         downloadService.downloadImageData(url: currentRecipeList[indexPath.row].images.first!) { data in
-
             DispatchQueue.main.async {
                 print(indexPath.row)
                 cell.recipeImageView.image = UIImage(data: data)

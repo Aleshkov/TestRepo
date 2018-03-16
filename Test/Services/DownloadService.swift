@@ -42,7 +42,7 @@ struct DownloadService {
             guard data != nil else { return }
             
             imageCache.setObject(data as AnyObject, forKey: url as AnyObject)
-            completion(imageCache.object(forKey: url as AnyObject) as! Data)
+            completion(data!)
         }
     }
 }
