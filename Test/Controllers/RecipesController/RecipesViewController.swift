@@ -38,6 +38,8 @@ class RecipesViewController: UIViewController {
     
     func setupNavigationBar() {
         navigationItem.title = "Recipes"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .automatic
         
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
@@ -132,7 +134,6 @@ extension RecipesViewController: UITableViewDataSource {
         cell.recipeDescriptionLabel.text = currentRecipeList[indexPath.row].description
         downloadService.downloadImageData(url: currentRecipeList[indexPath.row].images.first!) { data in
             DispatchQueue.main.async {
-                print(indexPath.row)
                 cell.recipeImageView.image = UIImage(data: data)
             }
         }

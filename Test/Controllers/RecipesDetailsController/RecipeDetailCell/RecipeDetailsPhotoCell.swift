@@ -27,7 +27,7 @@ class RecipeDetailsPhotoCell: UICollectionViewCell {
         addSubview(recipeImageConteinerView)
         recipeImageConteinerView.translatesAutoresizingMaskIntoConstraints = false
         
-        recipeImageConteinerView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+        recipeImageConteinerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         recipeImageConteinerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         recipeImageConteinerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         recipeImageConteinerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
